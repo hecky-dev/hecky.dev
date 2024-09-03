@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hecky.dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /**
+        * Big reset vibes
+        */
+        /*
+  1. Use a more-intuitive box-sizing model.
+*/
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /*
+  2. Remove default margin
+*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+        body {
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /*
+  5. Improve media defaults
+*/
+        img,
+        picture,
+        video,
+        canvas,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        /*
+  6. Remove built-in form typography styles
+*/
+        input,
+        button,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        /*
+  7. Avoid text overflows
+*/
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            overflow-wrap: break-word;
+        }
+
+
+        ul,
+        ol,
+        menu {
+            list-style: none;
+        }
+
+        /**
+        * The Styles
+        */
+        :root {
+            --pink: #FC8EAC;
+            --green: #73E2A7;
+            --darkgreen: #0B3C49;
+            --yellow: #FFCB77;
+            --black: #111;
+            --white: ##eee;
+        }
+
+        html {
+            font-family: 'Lexend', sans-serif;
+            font-size: 120%;
+            color: var(--darkgreen);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr [main-start] min(90%, 90rem) [main-end] 1fr;
+        }
+
+        .container>* {
+            grid-column: main;
+        }
+
+
+        .full-blast {
+            --diameter: 35vmax;
+            display: grid;
+            min-height: 100cqh;
+            place-items: center;
+            place-content: center;
+            background: var(--white);
+            position: relative;
+            mix-blend-mode: color-burn;
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                border-radius: 100%;
+                opacity: .50;
+                transform: rotate(55deg);
+            }
+
+            &:before {
+                box-shadow: 0 0 var(--diameter) var(--diameter) var(--pink);
+                animation:
+                    hue 5s 0s linear infinite,
+                    move1 10s 0s linear infinite
+            }
+
+            &:after {
+                box-shadow: 0 0 var(--diameter) var(--diameter) var(--green);
+                animation:
+                    hue 10s 0s linear infinite,
+                    move2 20s 0s linear infinite
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .full-blast {
+                color: var(--black);
+            }
+        }
+
+        @keyframes hue {
+            0% {
+                filter: hue-rotate(0deg)
+            }
+
+            100% {
+                filter: hue-rotate(360deg)
+            }
+        }
+
+        @keyframes move1 {
+            0% {
+                top: 0vh;
+                left: 50vw
+            }
+
+            25% {
+                left: 0vw
+            }
+
+            50% {
+                top: 100vh
+            }
+
+            75% {
+                left: 100vw
+            }
+
+            100% {
+                top: 0vh;
+                left: 50vw
+            }
+        }
+
+        @keyframes move2 {
+            0% {
+                top: 50vh;
+                left: 100vw
+            }
+
+            25% {
+                top: 100vh
+            }
+
+            50% {
+                left: 0vw
+            }
+
+            75% {
+                top: 0vh
+            }
+
+            100% {
+                top: 50vh;
+                left: 100vw
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <div class="full-blast container">
+            <h1>hecky.dev</h1>
+            <p>Stand by</p>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
